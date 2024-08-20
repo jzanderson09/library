@@ -1,8 +1,8 @@
 'use strict';
 
-const myLibrary = [];
+let myLibrary = [];
 
-const libraryDiv = document.querySelector('.library-div');
+const libraryDiv = document.querySelector('#library-div');
 const bookCardBoiler = document.createElement('div');
 
 const harryFirst = new Book(`Harry Potter and the Sorcerer's Stone`, 'J.K. Rowling', 309, true);
@@ -24,7 +24,14 @@ addBookToLibrary(harrySeventh);
 const formSubmit = document.querySelector('#submit');
 formSubmit.addEventListener('click', clickHandler);
 
-console.table(myLibrary);
+const clearReadBooksButton = document.createElement('button');
+clearReadBooksButton.addEventListener('click', deleteReadBooks);
+clearReadBooksButton.id = 'clear-read';
+clearReadBooksButton.textContent = 'Clear Read Books';
+const userFormDiv = document.querySelector('#user-form');
+userFormDiv.appendChild(clearReadBooksButton);
+
+updateLibraryDiv();
 
 //----------------functions: ---------------------
 
@@ -57,7 +64,7 @@ function addBookToLibrary(newBook) {
         window.alert(`Error! ${newBook.title} is already in your library!`);
     } else {
         myLibrary.push(newBook);
-        updateLibrary();
+        updateLibraryDiv();
     }
 }
 
@@ -78,21 +85,29 @@ function clickHandler(e) {
     }
 }
 
+function deleteReadBooks() {
+    let newLibrary = myLibrary.filter(book => book.read === false);
+    if (window.confirm(`Click 'OK' to proceed with clearing read (green colored) books from your library.`)) {
+        myLibrary = newLibrary;
+        updateLibraryDiv();
+    }
+}
+
 //Toggle class/color of bookCard when clicked/read:
 function toggleBookRead(bookCard) {
     //updates read key in obj to true/false and updates card-read class:
     let libraryId = bookCard.id;
     if (bookCard.classList == 'book-card book-read') {
-        myLibrary[libraryId].read = false;
+        myLibrary[libraryId]['read'] = false;
         bookCard.classList.remove('book-read');
     } else {
-        myLibrary[libraryId].read = true;
+        myLibrary[libraryId]['read'] = true;
         bookCard.classList.add('book-read');
     }
 }
 
 // Updates libraryDiv to reflect myLibrary:
-function updateLibrary() {
+function updateLibraryDiv() {
     libraryDiv.innerHTML = '';
     let bookCardBoiler = document.createElement('div');
     bookCardBoiler.className = 'book-card';
@@ -111,4 +126,5 @@ function updateLibrary() {
     bookCardArr.forEach(card => {
         libraryDiv.appendChild(card);
     });
+    console.table(myLibrary);
 }

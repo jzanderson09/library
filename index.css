@@ -16,7 +16,7 @@
 *::before,
 *::after {
     box-sizing: inherit;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 0;
     padding: 0;
 }
@@ -37,7 +37,7 @@ h1 {
     width: 100vw;
 }
 
-.library-div {
+#library-div {
     background-color: var(--library-background);
     border: 5px outset rgb(100 100 100 / 80%);
     box-shadow: 10px 10px 10px 10px black;
@@ -78,6 +78,7 @@ h1 {
     background-color: var(--user-form-background);
     border: 5px inset red;
     display: flex;
+    flex-flow: row wrap;
     height: 100vh;
     place-items: center;
     width: 50%;
@@ -89,7 +90,7 @@ h1 {
     gap: 3%;
     padding: 5%;
     place-items: center;
-    margin: 0 auto;
+    margin: 20% auto;
 }
 
 #user-input input {
@@ -103,6 +104,16 @@ h1 {
 #submit {
     background-color: var(--user-form-submit-button);
     border-radius: 10px;
+    display: block;
     margin: 10% auto;
     padding: 5%;
+    width: 100%;
+}
+
+#clear-read {
+    display: flex;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 5%;
+    place-items: center;
 }
