@@ -37,7 +37,7 @@ h1 {
     width: 100vw;
 }
 
-#library-div {
+.library-div {
     background-color: var(--library-background);
     border: 5px outset rgb(100 100 100 / 80%);
     box-shadow: 10px 10px 10px 10px black;
@@ -46,7 +46,7 @@ h1 {
     gap: 1%;
     height: 100%;
     overflow: auto;
-    width: 40%;
+    width: 50%;
 }
 
 .book-card {
@@ -54,16 +54,20 @@ h1 {
     border: 5px solid var(--library-book-border);
     border-radius: 10%;
     display: flex;
+    flex-flow: column wrap;
     height: 20vh;
-    margin: 1%;
-    padding: 2%;
     place-items: center;
+    text-align: center;
     width: 15vw;
 }
 
-.read-label {
-    margin: 1%;
-    width: 55%;
+.book-card:active {
+    transform: scale(0.95);
+}
+
+.book-card p {
+    margin: auto;
+    padding: 3%;
 }
 
 .book-read {
@@ -76,7 +80,7 @@ h1 {
     display: flex;
     height: 100vh;
     place-items: center;
-    width: 60%;
+    width: 50%;
 }
 
 #user-input {
@@ -99,5 +103,6 @@ h1 {
 #submit {
     background-color: var(--user-form-submit-button);
     border-radius: 10px;
+    margin: 10% auto;
     padding: 5%;
 }
