@@ -2,7 +2,7 @@
 
 ### [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-library)
 
-### [Github](https://github.com/jzanderson09/project_library)
+### [Github](https://github.com/jzanderson09/library)
 
 ### Assignment:  
 
