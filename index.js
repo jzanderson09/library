@@ -64,6 +64,10 @@ function addBookToLibrary(newBook) {
         window.alert(`Error! ${newBook.title} is already in your library!`);
     } else {
         myLibrary.push(newBook);
+        let formInputs = document.querySelectorAll('input');
+        for (let i = 0; i < formInputs.length; i++) {
+            formInputs[i].value = '';
+        }
         updateLibraryDiv();
     }
 }
