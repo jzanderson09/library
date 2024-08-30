@@ -9,14 +9,14 @@
 </head>
 <body>
     <div id="container">
-        <div id="library-div">
+        <div class="library-div">
             
         </div>
         <div id="user-form">
             <form id="user-input">
-                <input autocomplete="off" class="user-input" id="title" placeholder="Title" type="text">
-                <input autocomplete="off" class="user-input" id="author" placeholder="Author" type="text">
-                <input autocomplete="off" class="user-input" id="pages" placeholder="Pages" type="text">
+                <input autocomplete="off" class="text-input" id="title" onchange="inputCheck(id)" minlength="1" name="title" placeholder="Title" type="text" required>
+                <input autocomplete="off" class="text-input" id="author" onchange="inputCheck(id)" minlength="1" name="author" placeholder="Author" type="text" required>
+                <input autocomplete="off" class="text-input" id="pages" onchange="inputCheck(id)" minlength="1" name="pages" placeholder="Pages" type="text" required>
                 <input type="checkbox" id="read">
                 <label for="checkbox">I have read this book</label>
                 <button id="submit">NEW BOOK</button>

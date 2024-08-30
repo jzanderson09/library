@@ -1,10 +1,16 @@
 :root {
+    --active-element-clicked: scale(0.95);
     --library-background: #0ea5e9;
     --library-book-background: #f0f9ff;
     --library-book-border: #075985;
+    --library-border: rgb(100 100 100 / 80%); 
+    --library-box-shadow: 10px 10px 10px 10px black;
     --read-book-background: #22c55e;
     --user-form-background: #bae6fd;
-    --user-form-input-border: #d6d3d1;
+    --user-form-input-border: 3px outset #d6d3d1;
+    --user-form-input-box-shadow: 1px 1px 1px 1px black;
+    --user-form-input-invalid: 3px outset #ff0000;
+    --user-form-input-valid: 3px outset #00ff00;
     --user-form-submit-button: #22c55e;
     font-family: 'Syncopate', sans-serif;
     font-style: normal;
@@ -26,21 +32,44 @@ html {
     font-size: 62.5%;
 }
 
+button:active {
+    transform: var(--active-element-clicked);
+}
+
 h1 {
     font-size: 3.6rem;
 }
 
+input {
+    border: var(--user-form-input-border);
+    border-radius: 10px;
+    font-family: 'Syncopate', sans-serif;
+    margin: 5% auto;
+    padding: 2%;
+}
+
+input:invalid {
+    border: var(--user-form-input-invalid);
+}
+
+input:focus {
+    box-shadow: var(--user-form-input-box-shadow);
+}
+
+input:valid {
+    border: var(--user-form-input-valid);
+}
+
 #container {
-    border: 2px solid purple;
     display: flex;
     height: 100vh;
     width: 100vw;
 }
 
-#library-div {
+.library-div {
     background-color: var(--library-background);
-    border: 5px outset rgb(100 100 100 / 80%);
-    box-shadow: 10px 10px 10px 10px black;
+    border: 5px outset var(--library-border);
+    box-shadow: var(--library-box-shadow);
     display: flex;
     flex-flow: row wrap;
     gap: 1%;
@@ -62,7 +91,7 @@ h1 {
 }
 
 .book-card:active {
-    transform: scale(0.95);
+    transform: var(--active-element-clicked);
 }
 
 .book-card p {
@@ -76,7 +105,6 @@ h1 {
 
 #user-form {
     background-color: var(--user-form-background);
-    border: 5px inset red;
     display: flex;
     flex-flow: row wrap;
     height: 100vh;
@@ -91,14 +119,6 @@ h1 {
     padding: 5%;
     place-items: center;
     margin: 20% auto;
-}
-
-#user-input input {
-    border: 5px outset var(--user-form-input-border);
-    border-radius: 10px;
-    font-family: 'Syncopate', sans-serif;
-    margin: 5% auto;
-    padding: 2%;
 }
 
 #submit {
